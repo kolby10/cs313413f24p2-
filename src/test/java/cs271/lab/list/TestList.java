@@ -1,15 +1,13 @@
 package cs271.lab.list;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class TestList {
 
@@ -51,7 +49,8 @@ public class TestList {
     // TODO write assertions using
     // list.contains(77)
     // that hold before and after adding 77 to the list
-    fail("Not yet implemented"); // remove this line when done
+    assertEquals(true, list.contains(77));
+    fail("Not yet implemented");
   }
 
   @Test
@@ -60,10 +59,10 @@ public class TestList {
     list.add(77);
     list.add(77);
     // TODO fix the expected values in the assertions below
-    assertEquals(0, list.size());
+    assertEquals(3, list.size());
     assertEquals(0, list.indexOf(77));
-    assertEquals(0, list.get(1).intValue());
-    assertEquals(0, list.lastIndexOf(77));
+    assertEquals(77, list.get(1).intValue());
+    assertEquals(2, list.lastIndexOf(77));
   }
 
   @Test
@@ -76,12 +75,12 @@ public class TestList {
     list.add(77);
     list.add(66);
     // TODO fix the expected values in the assertions below
-    assertEquals(0, list.size());
-    assertEquals(0, list.indexOf(77));
-    assertEquals(0, list.lastIndexOf(77));
-    assertEquals(0, list.get(2).intValue());
-    assertEquals(0, list.get(3).intValue());
-    assertEquals(List.of(33, 77, 44), list);
+    assertEquals(7, list.size());
+    assertEquals(1, list.indexOf(77));
+    assertEquals(5, list.lastIndexOf(77));
+    assertEquals(44, list.get(2).intValue());
+    assertEquals(77, list.get(3).intValue());
+    assertEquals(List.of(33, 77, 44, 77, 55, 77, 66), list);
   }
 
   @Test
@@ -95,17 +94,17 @@ public class TestList {
     list.add(6);
     list.remove(5); // what does this method do?
     // TODO fix the expected values in the assertions below
-    assertEquals(0, list.size());
-    assertEquals(0, list.indexOf(77));
-    assertEquals(0, list.lastIndexOf(77));
-    assertEquals(0, list.get(2).intValue());
-    assertEquals(0, list.get(3).intValue());
-    list.remove(Integer.valueOf(5)); // what does this one do?
-    assertEquals(0, list.size());
-    assertEquals(0, list.indexOf(77));
-    assertEquals(0, list.lastIndexOf(77));
-    assertEquals(0, list.get(2).intValue());
-    assertEquals(0, list.get(3).intValue());
+    assertEquals(6, list.size());
+    assertEquals(1, list.indexOf(77));
+    assertEquals(3, list.lastIndexOf(77));
+    assertEquals(4, list.get(2).intValue());
+    assertEquals(77, list.get(3).intValue());
+    list.remove(Integer.valueOf(5)); // what does this one do? *removes the value stored at index 5
+    assertEquals(5, list.size());
+    assertEquals(1, list.indexOf(77));
+    assertEquals(3, list.lastIndexOf(77));
+    assertEquals(4, list.get(2).intValue());
+    assertEquals(77, list.get(3).intValue());
   }
 
   @Test
@@ -119,14 +118,17 @@ public class TestList {
     list.add(66);
     // TODO using containsAll and List.of (see above),
     // 1) assert that list contains all five different numbers added
+    assertTrue(list.containsAll(List.of(33, 77, 44, 55, 66)));
     // 2) assert that list does not contain all of 11, 22, and 33
-    fail("Not yet implemented"); // remove this line when done
+    assertFalse(list.containsAll(List.of(11, 22, 33)));
   }
 
   @Test
   public void testAddAll() {
     // TODO in a single statement using addAll and List.of,
     // add items to the list to make the following assertions pass
+    list.addAll(List.of(33, 77, 44, 77, 55, 77, 66));
+
     // (without touching the assertions themselves)
     assertEquals(7, list.size());
     assertEquals(33, list.get(0).intValue());
