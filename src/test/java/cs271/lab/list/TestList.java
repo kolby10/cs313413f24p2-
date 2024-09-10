@@ -39,18 +39,19 @@ public class TestList {
   public void testSizeNonEmpty() {
     // TODO fix the expected values in the assertions below
     list.add(77);
-    assertEquals(true, list.isEmpty());
-    assertEquals(0, list.size());
-    assertEquals(0, list.get(0).intValue());
+    assertEquals(false, list.isEmpty());
+    assertEquals(1, list.size());
+    assertEquals(77, list.get(0).intValue());
   }
 
   @Test
   public void testContains() {
+    list.add(77);
     // TODO write assertions using
     // list.contains(77)
     // that hold before and after adding 77 to the list
     assertEquals(true, list.contains(77));
-    fail("Not yet implemented");
+
   }
 
   @Test
@@ -152,6 +153,7 @@ public class TestList {
     // TODO in a single statement using removeAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
+    list.removeAll(List.of(33,44,55,66));
     assertEquals(3, list.size());
     assertEquals(List.of(77, 77, 77), list);
   }
@@ -168,6 +170,7 @@ public class TestList {
     // TODO in a single statement using retainAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
+    list.retainAll(List.of(77,77,77));
     assertEquals(3, list.size());
     assertEquals(List.of(77, 77, 77), list);
   }
@@ -184,6 +187,10 @@ public class TestList {
     // TODO use the set method to change specific elements in the list
     // such that the following assertions pass
     // (without touching the assertions themselves)
+    list.set(1, 99);
+    list.set(3, 99);
+    list.set(5, 99);
+
     assertEquals(7, list.size());
     assertEquals(33, list.get(0).intValue());
     assertEquals(99, list.get(1).intValue());
@@ -205,6 +212,6 @@ public class TestList {
     list.add(66);
     // TODO fix the arguments in the subList method so that the assertion
     // passes
-    assertEquals(List.of(44, 77, 55), list.subList(0, 0));
+    assertEquals(List.of(44, 77, 55), list.subList(2, 5));
   }
 }
