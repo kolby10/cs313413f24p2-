@@ -22,7 +22,7 @@ public class TestIterator {
   public void setUp() throws Exception {
    //list = new ArrayList<Integer>();
     list = new LinkedList<Integer>();
-    // TODO also try with a LinkedList - does it make any difference?
+    // TODO also try with a LinkedList - does it make any difference? **DONE,inREADME
   }
 
   @After
@@ -48,7 +48,7 @@ public class TestIterator {
     final var i = list.iterator();
     assertTrue(i.hasNext());
     assertEquals(33, i.next().intValue());
-    // TODO fix the expected values in the assertions below *DONE
+    // TODO fix the expected values in the assertions below **DONE
     assertTrue(i.hasNext());
     assertEquals(77, i.next().intValue());
     assertTrue(i.hasNext());
@@ -80,7 +80,7 @@ public class TestIterator {
       }
     }
     // TODO using assertEquals and List.of, express which values are left in the list
-   //System.out.println(assertEquals(List.of(list)););
+    // System.out.println(assertEquals(List.of(??)););
 
     //* should this print? also, should we use the iterator to create a new list of items left,
     // or should the S.o.Pln print the list we've modified in this method
