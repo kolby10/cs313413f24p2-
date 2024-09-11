@@ -14,7 +14,7 @@ public class TestPerformance {
   // running time is in the tens of seconds)
   // TODO (optional) refactor to DRY
   // which of the two lists performs better as the size increases?
-  private final int SIZE = 100;
+  private final int SIZE = 10000;
 
   // TODO choose this value in such a way that you can observe an actual effect
   // for increasing problem sizes
@@ -71,4 +71,30 @@ public class TestPerformance {
       sum += arrayList.get(r % SIZE);
     }
   }
+
+  @Test
+  public void testLinkedListPerformance() {
+    linkedList = new LinkedList<Integer>();
+    for (var i = 0; i < SIZE; i++) {
+      linkedList.add(i);
+    }
+    testLinkedListAddRemove();
+    testLinkedListAccess();
+  }
+
+
+  @Test
+  public void testArrayListPerformance() {
+    arrayList = new ArrayList<Integer>(SIZE);
+    for (var i = 0; i < SIZE; i++) {
+      arrayList.add(i);
+    }
+    testArrayListAddRemove();
+    testArrayListAccess();
+  }
+
+
 }
+
+
+

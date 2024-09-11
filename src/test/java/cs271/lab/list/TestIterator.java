@@ -100,7 +100,7 @@ public class TestIterator {
     list.add(66);
     double sum = 0;
     int n = 0;
-    // TODO use an iterator and a while loop to compute the average (mean) of the values
+    // TODO use an iterator and a while loop to compute the average (mean) of the values **DONE
     final var i = list.iterator();
     while (i.hasNext()) {
         sum = sum + list.get(n);
@@ -109,7 +109,8 @@ public class TestIterator {
         }
       }
 
-    // TODO what happens if you use list.remove(Integer.valueOf(77))?
+    // TODO what happens if you use list.remove(Integer.valueOf(77)) **DONE
+    // list.remove(Integer.valueOf(77)); // used to answer TODO prompt
     // (defined as the sum of the items divided by the number of items)
     // testNonempty shows how to use an iterator; use i.hasNext() in the while loop condition
     assertEquals(61.3, sum / n, 0.1);
