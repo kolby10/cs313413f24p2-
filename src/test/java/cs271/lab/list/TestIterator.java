@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +20,8 @@ public class TestIterator {
 
   @Before
   public void setUp() throws Exception {
-    list = new ArrayList<Integer>();
+   //list = new ArrayList<Integer>();
+    list = new LinkedList<Integer>();
     // TODO also try with a LinkedList - does it make any difference?
   }
 
@@ -78,9 +80,13 @@ public class TestIterator {
       }
     }
     // TODO using assertEquals and List.of, express which values are left in the list
+   //System.out.println(assertEquals(List.of(list)););
+
+    //* should this print? also, should we use the iterator to create a new list of items left,
+    // or should the S.o.Pln print the list we've modified in this method
+
     // See TestList.java for examples of how to use List.of; also see the Java List
     // interface for more information
-    fail("Not yet implemented"); // remove this line when done
   }
 
   @Test
@@ -95,6 +101,15 @@ public class TestIterator {
     double sum = 0;
     int n = 0;
     // TODO use an iterator and a while loop to compute the average (mean) of the values
+    final var i = list.iterator();
+    while (i.hasNext()) {
+        sum = sum + list.get(n);
+        if(i.next() != list.size()) {
+          n++;
+        }
+      }
+
+    // TODO what happens if you use list.remove(Integer.valueOf(77))?
     // (defined as the sum of the items divided by the number of items)
     // testNonempty shows how to use an iterator; use i.hasNext() in the while loop condition
     assertEquals(61.3, sum / n, 0.1);
