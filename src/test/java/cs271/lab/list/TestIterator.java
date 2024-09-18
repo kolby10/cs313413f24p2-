@@ -76,11 +76,11 @@ public class TestIterator {
     final var i = list.iterator();
     while (i.hasNext()) {
       if (i.next() == 77) {
-        i.remove(); // TODO what happens if you use list.remove(Integer.valueOf(77))?
+        i.remove(); // TODO what happens if you use list.remove(Integer.valueOf(77))? **DONE
         //list.remove(Integer.valueOf(77));
       }
     }
-    // TODO using assertEquals and List.of, express which values are left in the list
+    // TODO using assertEquals and List.of, express which values are left in the list **DONE
     assertEquals(List.of(33,44,55,66), list);
 
 
@@ -109,7 +109,7 @@ public class TestIterator {
       }
 
     // TODO what happens if you use list.remove(Integer.valueOf(77)) **DONE
-    // list.remove(Integer.valueOf(77)); // used to answer TODO prompt
+    // list.remove(Integer.valueOf(77)); // used to answer prompt
     // (defined as the sum of the items divided by the number of items)
     // testNonempty shows how to use an iterator; use i.hasNext() in the while loop condition
     assertEquals(61.3, sum / n, 0.1);

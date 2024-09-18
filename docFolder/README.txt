@@ -37,7 +37,7 @@ code provides.
   100000 = 21 sec, 858ms
 
 
-which of the two lists performs better as the size increases?
+Which of the two lists performs better as the size increases?
 
 the ArrayList performs better as size increases, due to ArrayList having
 a constant time of [O(1)], vs LinkedList's O(n).

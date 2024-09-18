@@ -9,14 +9,14 @@ import org.junit.Test;
 
 public class TestPerformance {
 
-  // TODO run test and record running times for SIZE = 10, 100, 1000, 10000, ...
+  // TODO run test and record running times for SIZE = 10, 100, 1000, 10000, ... **DONE
   // (choose in conjunction with REPS below up to an upper limit where the clock
   // running time is in the tens of seconds)
-  // TODO (optional) refactor to DRY
+  // TODO (optional) refactor to DRY **DONE
   // which of the two lists performs better as the size increases?
   private final int SIZE = 10000;
 
-  // TODO choose this value in such a way that you can observe an actual effect
+  // TODO choose this value in such a way that you can observe an actual effect **DONE
   // for increasing problem sizes
   private final int REPS = 1000000;
 
