@@ -1,17 +1,15 @@
-TestIterator.java
+** TestIterator.java
 try with a LinkedList - does it make any difference?
 
 
 TODO what happens if you use list.remove(Integer.valueOf(77))?
-if list.remove is used at this point in the method, no change is made to the output/
-the result of our test. this is due to our assertEquals using the values 'sum' and 'n',
-which are not affected at this point in the code.
+It could throw an exception. This is due to list.remove modifying the iterators list
+outside of the iterator itself. Using i.remove() is a better choice as it specifies what
+specific index that iterator is currently subjecting.
 
+* TestIterator.java 4/4 passed
 
-
-*TestIterator.java 4/4 passed, question on expressing in line 82 &
-
-TestList.java
+** TestList.java
  list.remove(Integer.valueOf(5)); // what does this one do?
  this line removed the value that is stored at index 5
 
@@ -19,9 +17,9 @@ TestList.java
 May cause a small increase in compiling time, but no apparent difference in the output the
 code provides.
 
-*TestList.java 12/12 passed
+* TestList.java 12/12 passed
 
- TestPerformance.java
+** TestPerformance.java
  TODO run test and record running times for SIZE = 10, 100, 1000, 10000, ...
  LinkedListPerformance()
   10 = 40ms
@@ -40,6 +38,7 @@ code provides.
 
 
 which of the two lists performs better as the size increases?
+
 the ArrayList performs better as size increases, due to ArrayList having
 a constant time of [O(1)], vs LinkedList's O(n).
 As we increase size, the constant time of ArrayList beats LinkedList's
@@ -64,7 +63,4 @@ TODO choose this value in such a way that you can observe an actual effect
     both ArrayLists and LinkedLists
 
 
-
-
-
-
+* TestPerformance.java 6/6 tests passed.
